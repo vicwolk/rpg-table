@@ -1,11 +1,14 @@
 body {
     padding: 0;
     margin: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
     background-image: url('https://www.cartographersguild.com/feature/ValciaMap.jpg');
     border: 1px solid black;
+    position: relative;
 }
 
 .row {
@@ -16,4 +19,45 @@ body {
 .box {
     border: 1px solid black;
     box-sizing: border-box;
+}
+
+/*.box:hover {
+    background-color: rgba(255,255,255, .25);
+    cursor: pointer;
+}
+*/
+.tool-box {
+    position: absolute;
+    left: 0;
+    bottom: -150px;
+    width: 100%;
+}
+
+.tool-box.show {
+    bottom: 0;
+}
+
+.btn-add {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+.menu-tool {
+    width: 100%;
+    background-color: white;
+    padding: 12px;
+    box-sizing: border-box;
+    height: 155px;
+}
+
+.player-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    display: block;
 }

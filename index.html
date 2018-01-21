@@ -8,8 +8,73 @@
 </head>
 
 <body>
-      <div class="container">
-      </div>
+    <div class="container"></div>
+    <footer id="tool" class="tool-box">
+        <div class="menu-tool show">
+            <button id="toggleTool" class="btn-add">+</button>
+
+            <div class="menu-container">
+                <div class="player-wrapper">
+                    <fieldset>
+                        <legend>TIPO</legend>
+                        <label for="player-option">
+                            <input id="player-option" type="radio" value="player" name="creature"> Jogador
+                        </label>
+                        <label for="monster-option">
+                            <input id="monster-option" type="radio" value="monster" name="creature"> Monstro
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>RAÇA</legend>
+                        <label for="human-option">
+                            <input id="human-option" type="radio" value="human" name="race"> Humano
+                        </label>
+                        <label for="not-human-option">
+                            <input id="not-human-option" type="radio" value="not-human" name="race"> Não humano
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>TAMANHO</legend>
+                        <label for="p-option">
+                            <input id="p-option" type="radio" value="p" name="size"> Pequeno
+                        </label>
+                        <label for="m-option">
+                            <input id="m-option" type="radio" value="m" name="size"> Médio
+                        </label>
+                        <label for="g-option">
+                            <input id="g-option" type="radio" value="g" name="size"> Grande
+                        </label>
+                        <label for="gg-option">
+                            <input id="gg-option" type="radio" value="gg" name="size"> Gigante
+                        </label>
+                        <label for="xg-option">
+                            <input id="xg-option" type="radio" value="xg" name="size"> Colossal
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>COR</legend>
+                        <label for="yellow-option">
+                            <input id="yellow-option" type="radio" value="#ff0" name="color"> Amarelo
+                        </label>
+                        <label for="blue-option">
+                            <input id="blue-option" type="radio" value="#00f" name="color"> Azul
+                        </label>
+                        <label for="green-option">
+                            <input id="green-option" type="radio" value="#0f0" name="color"> Verde
+                        </label>
+                        <label for="red-option">
+                            <input id="red-option" type="radio" value="#f00" name="color"> Vermelho
+                        </label>
+                    </fieldset>
+
+                    <button class="btn-create">Criar</button>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
