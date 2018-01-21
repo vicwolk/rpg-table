@@ -32,11 +32,20 @@ function createBoard() {
 
 function createPlayer() {
     $(".box").on("click", function (e) {
+        var color = "#fff";
         console.log(this);
-        var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
+        // var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
 
-        if(answer) {
-            $(this).css("backgroundColor", "#f00");
-        }
+        // $(".jscolor").css("display", "block");
+
+        // $(".jscolor").on("change", function (e){
+        //     color = "#" + this.value;
+        //     console.log(color);
+        // });
+
+        // if(answer) {
+        //     $(this).css("backgroundColor", color);
+        //     $(this).text("player");
+        // }
     });
 }
