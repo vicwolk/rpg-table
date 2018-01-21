@@ -1,6 +1,7 @@
 $(document).ready(function () {
     createBoard();
     createPlayer();
+    $(document).on('click', '#toggleTool', toggleToolBox);
 });
 
 function createBoard() {
@@ -26,7 +27,15 @@ function createBoard() {
     })();
 
     $('.box').css({ width: '40px', height: '40px' });
+};
 
+function toggleToolBox() {
+    'use strict';
+
+    // const rowIndex = $(this).parent('.row').data('index');
+    // const boxIndex = $(this).data('index');
+
+    $('.tool-box').toggleClass('show');
 }
 
 
