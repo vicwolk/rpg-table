@@ -1,10 +1,13 @@
 $(document).ready(function () {
-    createBoard();
-    createPlayer();
-    $(document).on('click', '#toggleTool', toggleToolBox);
+    _init();
+    $(document).on('click', '.box', toggleToolBox);
 });
 
-function createBoard() {
+function _init() {
+    _createBoard();
+};
+
+function _createBoard() {
     'use strict';
 
     const screenW = $(window).width();
@@ -32,20 +35,20 @@ function createBoard() {
 function toggleToolBox() {
     'use strict';
 
-    // const rowIndex = $(this).parent('.row').data('index');
-    // const boxIndex = $(this).data('index');
+    const rowIndex = $(this).parent('.row').data('index');
+    const boxIndex = $(this).data('index');
 
     $('.tool-box').toggleClass('show');
-}
+};
 
 
-function createPlayer() {
-    $(".box").on("click", function (e) {
-        console.log(this);
-        var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
+// function createPlayer() {
+//     $(".box").on("click", function (e) {
+//         console.log(this);
+//         var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
 
-        if(answer) {
-            $(this).css("backgroundColor", "#f00");
-        }
-    });
-}
+//         if(answer) {
+//             $(this).css("backgroundColor", "#f00");
+//         }
+//     });
+// }
