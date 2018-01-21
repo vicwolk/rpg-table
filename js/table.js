@@ -1,10 +1,13 @@
 $(document).ready(function () {
-    createBoard();
-    createPlayer();
-    $(document).on('click', '#toggleTool', toggleToolBox);
+    _init();
 });
 
-function createBoard() {
+function _init() {
+    _createBoard();
+    toggleToolBox();
+};
+
+function _createBoard() {
     'use strict';
 
     const screenW = $(window).width();
@@ -32,29 +35,23 @@ function createBoard() {
 function toggleToolBox() {
     'use strict';
 
-    // const rowIndex = $(this).parent('.row').data('index');
-    // const boxIndex = $(this).data('index');
+    $('.box').on('click', function() {
 
-    $('.tool-box').toggleClass('show');
-}
+        const rowIndex = $(this).parent('.row').data('index');
+        const boxIndex = $(this).data('index');
 
-
-function createPlayer() {
-    $(".box").on("click", function (e) {
-        var color = "#fff";
-        console.log(this);
-        // var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
-
-        // $(".jscolor").css("display", "block");
-
-        // $(".jscolor").on("change", function (e){
-        //     color = "#" + this.value;
-        //     console.log(color);
-        // });
-
-        // if(answer) {
-        //     $(this).css("backgroundColor", color);
-        //     $(this).text("player");
-        // }
+        $('.tool-box').toggleClass('show');
     });
-}
+};
+
+
+// function createPlayer() {
+//     $(".box").on("click", function (e) {
+//         console.log(this);
+//         var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
+
+//         if(answer) {
+//             $(this).css("backgroundColor", "#f00");
+//         }
+//     });
+// }
