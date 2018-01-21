@@ -1,10 +1,10 @@
 $(document).ready(function () {
     _init();
-    $(document).on('click', '.box', toggleToolBox);
 });
 
 function _init() {
     _createBoard();
+    toggleToolBox();
 };
 
 function _createBoard() {
@@ -35,10 +35,13 @@ function _createBoard() {
 function toggleToolBox() {
     'use strict';
 
-    const rowIndex = $(this).parent('.row').data('index');
-    const boxIndex = $(this).data('index');
+    $('.box').on('click', function() {
 
-    $('.tool-box').toggleClass('show');
+        const rowIndex = $(this).parent('.row').data('index');
+        const boxIndex = $(this).data('index');
+
+        $('.tool-box').toggleClass('show');
+    });
 };
 
 
