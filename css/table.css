@@ -4,7 +4,8 @@ body {
 }
 
 .container {
-    background-image: url('https://www.cartographersguild.com/feature/ValciaMap.jpg');
+    /* background-image: url('https://www.cartographersguild.com/feature/ValciaMap.jpg'); */
+    background-image: url("../res/img/grass.jpeg");
     border: 1px solid black;
 }
 
