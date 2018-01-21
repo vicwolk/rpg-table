@@ -2,9 +2,18 @@ $(document).ready(function () {
     _init();
 });
 
+var selectedRow = 0;
+var selectedCol = 0;
+var boxColor = "#fff";
+var playerCount = 0;
+var monsterCount = 0;
+
 function _init() {
     _createBoard();
-    toggleToolBox();
+    getSelectedBox();
+    colorPicker();
+    createCharacter();
+    deletePlayer();
 };
 
 function _createBoard() {
@@ -32,26 +41,59 @@ function _createBoard() {
     $('.box').css({ width: '40px', height: '40px' });
 };
 
-function toggleToolBox() {
+function getSelectedBox() {
     'use strict';
 
-    $('.box').on('click', function() {
+    $('.box').on('click', function () {
 
-        const rowIndex = $(this).parent('.row').data('index');
-        const boxIndex = $(this).data('index');
+        selectedRow = $(this).parent('.row').data('index');
+        selectedCol = $(this).data('index');
 
         $('.tool-box').toggleClass('show');
     });
 };
 
 
-// function createPlayer() {
-//     $(".box").on("click", function (e) {
-//         console.log(this);
-//         var answer = confirm("Deseja criar um personagem na coluna " + $(this).attr("data-index") + " da linha " + $(this).parent().attr("data-index") + "?");
+// todo: diferenciar entre jogador/monstro
+// todo: pegar as demais informações do form
+function createCharacter() {
+    $(".btn-create").on("click", function (e) {
+        const box = $(".row").eq(selectedRow - 1).children().eq(selectedCol - 1);
+        box.css("backgroundColor", boxColor);
+        box.css("color", invertColor(boxColor, true));
 
-//         if(answer) {
-//             $(this).css("backgroundColor", "#f00");
-//         }
-//     });
-// }
+        const number = playerCount++ + 1;
+        var charObj = {};
+        charObj.type = "jogador";
+        charObj.isActive = true;
+        charObj.status = "created";
+        charObj.number = number;
+
+        box.attr("data-char", JSON.stringify(charObj));
+
+        box.text("J" + number);
+
+        // fecha o menu
+        $('.tool-box').toggleClass('show');
+
+    });
+}
+
+function deletePlayer() {
+    $(".btn-delete").on("click", function (e) {
+        const box = $(".row").eq(selectedRow - 1).children().eq(selectedCol - 1);
+        box.css("backgroundColor", "");
+        box.text("");
+        var charObj = box.data("char");
+        charObj.isActive = false;
+        charObj.status = "deleted";
+        
+        $('.tool-box').toggleClass('show');
+    });
+}
+
+function colorPicker() {
+    $(".jscolor").on("change", function (e) {
+        boxColor = "#" + this.value;
+    });
+}
