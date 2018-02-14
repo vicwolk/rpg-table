@@ -17,14 +17,23 @@ body {
     width: 100%;
 }
 
-.box {
+.col {
     border: 1px solid black;
     box-sizing: border-box;
+    position: relative;
 }
 
-.box:hover {
+.col:hover {
     background-color: rgba(255,255,255, .25);
     cursor: pointer;
+}
+
+.box {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .tool-box {

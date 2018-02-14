@@ -29,8 +29,8 @@ function _createBoard() {
         for (let rowIndex = 1; rowIndex <= rows; rowIndex++) {
             let elem = `<div class="row" data-index="${rowIndex}">`;
 
-            for (let boxIndex = 1; boxIndex <= boxs; boxIndex++) {
-                elem += `<div class="box" data-index="${boxIndex}"></div>`;
+            for (let colIndex = 1; colIndex <= boxs; colIndex++) {
+                elem += `<div class="col" data-index="${colIndex}"> <div class="box"></div> </div>`;
             };
 
             elem += '</div>';
@@ -38,7 +38,7 @@ function _createBoard() {
         }
     })();
 
-    $('.box').css({ width: '40px', height: '40px' });
+    $('.col').css({ width: '40px', height: '40px' });
 };
 
 function getSelectedBox() {
@@ -46,8 +46,8 @@ function getSelectedBox() {
 
     $('.box').on('click', function () {
 
-        selectedRow = $(this).parent('.row').data('index');
-        selectedCol = $(this).data('index');
+        selectedRow = $(this).parent('.col').parent('.row').data('index');
+        selectedCol = $(this).parent('.col').data('index');
 
         $('.tool-box').toggleClass('show');
     });
@@ -87,7 +87,7 @@ function deletePlayer() {
         var charObj = box.data("char");
         charObj.isActive = false;
         charObj.status = "deleted";
-        
+
         $('.tool-box').toggleClass('show');
     });
 }
